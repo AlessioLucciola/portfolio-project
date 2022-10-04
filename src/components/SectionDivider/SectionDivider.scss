@@ -1,0 +1,11 @@
+.app__sectiondivider {
+    content: "";
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 70%;
+    max-width: 1000px;
+	height: 2px;
+    margin: 1rem auto;
+	background-image: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+}
