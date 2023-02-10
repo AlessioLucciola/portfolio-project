@@ -35,8 +35,8 @@ const Projects = () => {
                   <p className='app__project-card-name'>{item.name}</p>
                   {item.description}
                   <div className='app__projects-card-column'>
-                    {item.tags && item.tags.map(tag => (
-                      <div className='app__projects-card-tag'>
+                    {item.tags && item.tags.map((tag, index) => (
+                      <div key={`${item.name}_${tag}_${index}`} className='app__projects-card-tag'>
                         <span>
                           #{tag}
                         </span>
