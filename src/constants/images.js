@@ -24,6 +24,9 @@ import generocity from '../assets/generocity.png';
 import lucciolalegnami from '../assets/lucciolalegnami.png';
 import quizart from '../assets/quizart.png';
 import babel from '../assets/babel.jpg';
+import biometricbites from '../assets/biometricbites.png';
+import strokeprediction from '../assets/strokeprediction.png';
+import autonomousnetworking from '../assets/autonomousnetworking.png';
 
 export default {
     logo,
@@ -51,5 +54,8 @@ export default {
     generocity,
     lucciolalegnami,
     quizart,
-    babel
+    babel,
+    biometricbites,
+    strokeprediction,
+    autonomousnetworking,
 };
