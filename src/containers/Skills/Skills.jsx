@@ -57,7 +57,7 @@ const Skills = () => {
     <>
       <a id='skills' />
       <div className='app__skills'>
-        <h2 className='head-text'>Skills</h2>
+        <h2 className='head-text'>Skills.</h2>
         <div className='app__skills-filter'>
           {['All', 'Languages', 'Frontend', 'Backend', 'Software', 'Version Control'].map((item, index) => (
             <div key={index} onClick={() => handleSkillsFilter(item)} className={`app__skills-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}>

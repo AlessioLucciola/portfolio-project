@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <>
       <a id='contact' />
-      <h2 className='head-text'>Contact</h2>
+      <h2 className='head-text'>Contact.</h2>
       <div className='app__footer'>
         <div className='app__footer-cards'>
           <div className='app__footer-card'>
