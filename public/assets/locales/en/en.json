@@ -1,0 +1,10 @@
+{
+    "sections.about.name": "about",
+    "sections.about.label": "About Me.",
+    "sections.projects.name": "projects",
+    "sections.projects.label": "Projects.",
+    "sections.skills.name": "skills",
+    "sections.skills.label": "Skills.",
+    "sections.contact.name": "contact",
+    "sections.contact.label": "Contact."
+}

@@ -196,6 +196,10 @@
             }
         }
 
+        img {
+            width: 50px;
+        }
+
         @media screen and (min-width: 900px) {
             display: none;
         }
@@ -204,4 +208,11 @@
     @media screen and (min-width: 900px) {
         display: none;
     }
+}
+
+.app__navbar-language-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

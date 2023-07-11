@@ -1,4 +1,6 @@
 import logo from '../assets/logo.png';
+import italianflag from '../assets/italy.png';
+import usaflag from '../assets/united-states.png'
 import java from '../assets/java.png';
 import golang from '../assets/golang.png';
 import javascript from '../assets/javascript.png';
@@ -27,9 +29,14 @@ import babel from '../assets/babel.jpg';
 import biometricbites from '../assets/biometricbites.png';
 import strokeprediction from '../assets/strokeprediction.png';
 import autonomousnetworking from '../assets/autonomousnetworking.png';
+import airbnb from '../assets/airbnb.png';
+import voicefork from '../assets/voicefork.png';
+import voiceforkskill from '../assets/voicefork-skill.png'
 
 export default {
     logo,
+    italianflag,
+    usaflag,
     java,
     golang,
     javascript,
@@ -58,4 +65,7 @@ export default {
     biometricbites,
     strokeprediction,
     autonomousnetworking,
+    airbnb,
+    voicefork,
+    voiceforkskill
 };

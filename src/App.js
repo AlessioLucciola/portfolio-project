@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
 import { About, Footer, Header, Projects, Skills } from './containers';
 import { Navbar, SocialMedia } from './components';
