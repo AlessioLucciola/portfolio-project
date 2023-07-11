@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { SectionDivider } from '../../components';
 import { images } from '../../constants';
 import { BiWorld } from 'react-icons/bi';
-import { AiOutlineGithub, AiFillYoutube } from 'react-icons/ai';
+import { AiOutlineGithub, AiFillYoutube, AiFillDelete } from 'react-icons/ai';
 import './Projects.scss';
 
 const Projects = () => {
   const allProjects = [
-    {name: 'Airbnb Price Prediction', description: 'Machine Learning model created using PySpark for predicting the price of an Airbnb. A web application was created to test the model.', img: images.airbnb, tags: ['MachineLearning', 'Python', 'Spark', 'ReactJS', 'WebApp', 'MySQL', 'Django', 'Typescript'], website: '', github: 'https://github.com/AlessioLucciola/airbnb-price-predictor', youtube: 'https://www.youtube.com/watch?v=CLMlq0RHy-0&ab_channel=AlessioLucciola'},
+    {name: 'Airbnb Price Prediction', description: 'Machine Learning model created using PySpark for predicting the price of an Airbnb. A web application was created to test the model.', img: images.airbnb, tags: ['MachineLearning', 'Python', 'Spark', 'ReactJS', 'WebApp', 'MySQL', 'Django', 'Typescript', 'Docker'], website: '', github: 'https://github.com/AlessioLucciola/airbnb-price-predictor', youtube: 'https://www.youtube.com/watch?v=CLMlq0RHy-0&ab_channel=AlessioLucciola'},
     {name: 'Voicefork', description: "A TheFork mobile app clone whose backend is implemented using a microservices structure. The app was developed using React Native, the microservices using both Express and FastAPI. The project has been also deployed on AWS, and the infrastructure is defined using Terraform, and it's load tested using k6", img: images.voicefork, tags: ['MobileApp', 'Typescript', 'Python', 'Docker', 'React Native', 'MySQL', 'PostgreSQL', 'Redis', 'Terraform', 'k6', 'Express', 'Prisma', 'FastAPI', 'Faiss'], website: '', github: 'https://github.com/AlessioLucciola/voicefork', youtube: 'https://www.youtube.com/watch?v=0-LgkOZpavc&ab_channel=AlessioLucciola'},
     {name: 'Voicefork Alexa Skill', description: 'An Alexa Skill that uses the same backend as Voicefork that focuses on restaurant name disambiguation by the voice assistant, focusing on the user context and the restaurant features (cuisine, rating, and location) in order to proceed with the disambiguation.', img: images.voiceforkskill, tags: ['VoiceUserInterface', 'Alexa', 'Typescript'], website: '', github: 'https://github.com/AlessioLucciola/voicefork-alexa-skill', youtube: ''},
     {name: 'GeneroCity', description: 'I took part in an internship with GamificationLab, a "Sapienza University of Rome" laboratory that deals with the design and development of web applications. I worked mainly on the development of new APIs for a smart parking application called GeneroCity, using Go programming language.', img: images.generocity, tags: ['MobileApp', 'Backend', 'Golang', 'PostgreSQL'], website: 'https://www.generocity.it/', github: '', youtube: ''},
@@ -22,14 +23,50 @@ const Projects = () => {
   ];
 
   const [visibleProjectNumber, setVisibleProjectNumber] = useState(3);
+  const [filteredProjects, setFilteredProjects] = useState(allProjects);
+  const [activeFilter, setActiveFilter] = useState(null);
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
+
+  const handleProjectFilter = (item) => {
+    if (activeFilter !== item) {
+      setActiveFilter(item);
+      setAnimateCard([{y:100, opacity: 0}])
+
+      setTimeout(() => {
+        setAnimateCard([{y:0, opacity: 1}])
+
+        if(item === null) {
+          setFilteredProjects(allProjects);
+        } else {
+          setFilteredProjects(allProjects.filter((project) => project.tags.includes(item)))
+        }
+      }, 500);
+    }
+  }
+
+  const handleRemoveProjectFilter = () => {
+      setAnimateCard([{y:100, opacity: 0}])
+      setTimeout(() => {
+        setAnimateCard([{y:0, opacity: 1}])
+        setActiveFilter(null)
+        setFilteredProjects(allProjects)
+      }, 500)
+  }
 
   return (
     <>
       <a id='projects' />
       <div className='app__projects'>
         <h2 className='head-text'>Projects.</h2>
-        <div className='app__projects-cards app__flex'>
-          {allProjects.slice(0, visibleProjectNumber).map((item, index) => (
+        {activeFilter !== null ? (
+          <div className='app__projects-active-filter-button' onClick={() => handleRemoveProjectFilter()}>
+            <AiFillDelete /> Active filter: {activeFilter}
+          </div>
+        ) : (
+          ''
+        )}
+        <motion.div animate={animateCard} transition={{ duration: 0.5, delayChildren: 0.5 }} className='app__projects-cards app__flex'>
+          {filteredProjects.slice(0, visibleProjectNumber).map((item, index) => (
             <div className='app__projects-card' key={index}>
               <div className='app__projects-card-row'>
                 <img src={item.img} alt={`${item.name}Logo`}></img>
@@ -39,7 +76,7 @@ const Projects = () => {
                   {item.description}
                   <div className='app__projects-card-column'>
                     {item.tags && item.tags.map((tag, index) => (
-                      <div key={`${item.name}_${tag}_${index}`} className='app__projects-card-tag'>
+                      <div key={`${item.name}_${tag}_${index}`} onClick={() => handleProjectFilter(tag)} className='app__projects-card-tag'>
                         <span>
                           #{tag}
                         </span>
@@ -56,12 +93,12 @@ const Projects = () => {
               </div>
             </div>
           ))}
-          {visibleProjectNumber < allProjects.length ? (
+          {visibleProjectNumber < filteredProjects.length ? (
             <button onClick={() => setVisibleProjectNumber(visibleProjectNumber+3)}>Load More</button>
           ) : (
             <a href='https://github.com/AlessioLucciola' target='_blank' rel='noreferrer'><button>View More On GitHub</button></a>
           ) }
-        </div>
+        </motion.div>
       </div>
       <SectionDivider />
     </>
