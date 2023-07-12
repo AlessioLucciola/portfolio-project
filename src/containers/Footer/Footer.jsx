@@ -16,9 +16,9 @@ const Footer = () => {
     setLoading(true);
     e.preventDefault();
 
-    const emailRegex = new RegExp('^[a-zA-Z0-9]+@(?:[a-zA-Z0-9.])+[.]+[?:A-Za-z]+$');
-    if (formValues['name'] === '' || formValues['surname'] === '' || formValues['email'] === '' || !emailRegex.test(formValues['email']) || formValues['message'] === '')
-      console.log('asdasd')
+    const emailRegex = "^[a-zA-Z0-9_!#$%&*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
+    if (formValues['name'] === '' || formValues['surname'] === '' || formValues['email'] === '' || !formValues['email'].match(emailRegex) || formValues['message'] === '')
+      console.log("Form Debug: Something's wrong. Please, check the data.")
     else {
       emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
       .then((result) => {
@@ -58,7 +58,7 @@ const Footer = () => {
             <input className='p-text' type='text' placeholder='Surname' name='surname' value={formValues['surname']} onChange={(e) => setFormValues({...formValues, [e.target.name]: e.target.value})} errormessage='Surname field cannot be left blank' required />
           </div>
           <div className='app__flex'>
-            <input className='p-text' type='text' placeholder='Email' name='email' value={formValues['email']} onChange={(e) => setFormValues({...formValues, [e.target.name]: e.target.value})} errormessage='Type a valid email address' pattern='^[a-zA-Z0-9]+@(?:[a-zA-Z0-9.])+[.]+[?:A-Za-z]+$' required />
+            <input className='p-text' type='text' placeholder='Email' name='email' value={formValues['email']} onChange={(e) => setFormValues({...formValues, [e.target.name]: e.target.value})} errormessage='Type a valid email address' pattern='^[a-zA-Z0-9_!#$%&*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$' required />
           </div>
           <div className='app__flex'>
             <textarea className='p-text' type='text' placeholder='Your Message' name='message' value={formValues['message']} onChange={(e) => setFormValues({...formValues, [e.target.name]: e.target.value})} errormessage='Message field cannot be left blank' required />
