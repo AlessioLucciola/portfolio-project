@@ -11,19 +11,29 @@ const Skills = () => {
     { name: "Golang", tag: "Languages", imgName: "golang" },
     { name: "Python", tag: "Languages", imgName: "python" },
     { name: "Javascript", tag: "Languages", imgName: "javascript" },
+    { name: "Typescript", tag: "Languages", imgName: "typescript" },
     { name: "HTML5", tag: "Frontend", imgName: "html" },
     { name: "CSS", tag: "Frontend", imgName: "css" },
     { name: "SCSS", tag: "Frontend", imgName: "scss" },
     { name: "ReactJS", tag: "Frontend", imgName: "reactjs" },
+    { name: "ReactNative", tag: "Frontend", imgName: "reactnative" },
+    { name: "Django", tag: "Backend", imgName: "django" },
+    { name: "ExpressJS", tag: "Backend", imgName: "express" },
     { name: "PHP", tag: "Languages", imgName: "php" },
     { name: "PostgreSQL", tag: "Backend", imgName: "postgresql" },
     { name: "MySQL", tag: "Backend", imgName: "mysql" },
     { name: "Bootstrap", tag: "Frontend", imgName: "bootstrap" },
-    { name: "Postman", tag: "Software", imgName: "postman" },
+    { name: "Docker", tag: "Software and Libraries", imgName: "docker" },
+    { name: "AWS", tag: "Software and Libraries", imgName: "aws" },
+    { name: "Postman", tag: "Software and Libraries", imgName: "postman" },
+    { name: "K6", tag: "Software and Libraries", imgName: "k6" },
+    { name: "Terraform", tag: "Software and Libraries", imgName: "terraform" },
+    { name: "Spark", tag: "Software and Libraries", imgName: "spark" },
+    { name: "ScikitLearn", tag: "Software and Libraries", imgName: "scikitlearn" },
+    { name: "Photoshop", tag: "Software and Libraries", imgName: "photoshop" },
+    { name: "MarvelApp", tag: "Software and Libraries", imgName: "marvel" },
     { name: "GitLab", tag: "Version Control", imgName: "gitlab" },
     { name: "GitHub", tag: "Version Control", imgName: "github" },
-    { name: "Photoshop", tag: "Software", imgName: "photoshop" },
-    { name: "Marvel", tag: "Software", imgName: "marvel" },
   ]
 
   const [activeFilter, setActiveFilter] = useState('All');
@@ -59,7 +69,7 @@ const Skills = () => {
       <div className='app__skills'>
         <h2 className='head-text'>Skills.</h2>
         <div className='app__skills-filter'>
-          {['All', 'Languages', 'Frontend', 'Backend', 'Software', 'Version Control'].map((item, index) => (
+          {['All', 'Languages', 'Frontend', 'Backend', 'Software and Libraries', 'Version Control'].map((item, index) => (
             <div key={index} onClick={() => handleSkillsFilter(item)} className={`app__skills-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}>
               {item}
             </div>

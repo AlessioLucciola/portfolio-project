@@ -31,7 +31,16 @@ import strokeprediction from '../assets/strokeprediction.png';
 import autonomousnetworking from '../assets/autonomousnetworking.png';
 import airbnb from '../assets/airbnb.png';
 import voicefork from '../assets/voicefork.png';
-import voiceforkskill from '../assets/voicefork-skill.png'
+import voiceforkskill from '../assets/voicefork-skill.png';
+import docker from '../assets/docker.png';
+import k6 from '../assets/k6.png';
+import reactnative from '../assets/reactnative.png';
+import scikitlearn from '../assets/scikitlearn.png';
+import spark from '../assets/spark.png';
+import terraform from '../assets/terraform.png';
+import typescript from '../assets/typescript.png';
+import django from '../assets/django.png';
+import aws from '../assets/aws.png';
 
 export default {
     logo,
@@ -67,5 +76,14 @@ export default {
     autonomousnetworking,
     airbnb,
     voicefork,
-    voiceforkskill
+    voiceforkskill,
+    docker,
+    k6,
+    reactnative,
+    scikitlearn,
+    spark,
+    terraform,
+    typescript,
+    django,
+    aws
 };
