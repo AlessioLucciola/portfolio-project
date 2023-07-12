@@ -5,6 +5,7 @@
     width: 100%;
     max-width: 1500px;
     margin: auto;
+    font-family: var(--font-base);
     
     button {
         padding: 1rem 2rem;
@@ -13,7 +14,6 @@
         background-color: var(--secondary-color);
         font-weight: 500;
         color: rgba(255, 255, 255, 1);
-        font-family: var(--font-base);
         transition: all 0.2s ease-in-out;
         cursor: pointer;
 
@@ -109,7 +109,6 @@
     padding: 0.3rem 0.5rem;
     border-radius: 0.5rem;
     background-color: var(--secondary-color);
-    color: rgba(255, 255, 255, 1);
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -120,6 +119,14 @@
         outline-color: var(--secondary-color);
         background-color: rgba(255, 255, 255, 1);
         color: var(--secondary-color);
+    }
+
+    a {
+        color: rgba(255, 255, 255, 1);
+
+        &:hover {
+            color: var(--secondary-color);
+        }
     }
 }
 
@@ -144,5 +151,17 @@
         outline-color: var(--red-color);
         background-color: rgba(255, 255, 255, 1);
         color: var(--red-color);
+    }
+}
+
+.app__project-card-tag-active-filter {
+    outline: 3px;
+    outline-offset: -3px;
+    outline-style: solid;
+    outline-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 1);
+
+    a {
+        color: var(--secondary-color)
     }
 }

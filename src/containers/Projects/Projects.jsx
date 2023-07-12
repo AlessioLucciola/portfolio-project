@@ -41,6 +41,8 @@ const Projects = () => {
           setFilteredProjects(allProjects.filter((project) => project.tags.includes(item)))
         }
       }, 500);
+    } else {
+      handleRemoveProjectFilter()
     }
   }
 
@@ -76,10 +78,8 @@ const Projects = () => {
                   {item.description}
                   <div className='app__projects-card-column'>
                     {item.tags && item.tags.map((tag, index) => (
-                      <div key={`${item.name}_${tag}_${index}`} onClick={() => handleProjectFilter(tag)} className='app__projects-card-tag'>
-                        <span>
-                          #{tag}
-                        </span>
+                      <div key={`${item.name}_${tag}_${index}`} onClick={() => handleProjectFilter(tag)} className={`app__projects-card-tag ${tag === activeFilter ? 'app__project-card-tag-active-filter' : ''}`}>
+                          <a href={`#projects`}>#{tag}</a>
                       </div>
                     ))}
                   </div>
