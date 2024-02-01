@@ -41,6 +41,12 @@ import terraform from '../assets/terraform.png';
 import typescript from '../assets/typescript.png';
 import django from '../assets/django.png';
 import aws from '../assets/aws.png';
+import melanoma from '../assets/melanoma.png';
+import hardhat from '../assets/hardhat.png';
+import solidity from '../assets/solidity.png';
+import pytorch from '../assets/pytorch.png';
+import smartsupply from '../assets/smartsupply.png';
+import tailwind from '../assets/tailwind.png';
 
 export default {
     logo,
@@ -85,5 +91,11 @@ export default {
     terraform,
     typescript,
     django,
-    aws
+    aws,
+    melanoma,
+    hardhat,
+    solidity,
+    pytorch,
+    smartsupply,
+    tailwind
 };

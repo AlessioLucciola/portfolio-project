@@ -9,6 +9,8 @@ import './Projects.scss';
 
 const Projects = () => {
   const allProjects = [
+    {name: 'Skin Lesion Classification', description: "Deep Learning Skin Lesion Classification using CNN, ViT and MSLANet", img: images.melanoma, tags: ['Python', 'Deep Learning', 'Pytorch', 'CNN', 'Vision Transformers', 'StyleGAN'], website: '', github: 'https://github.com/AlessioLucciola/skin-lesion-classification', youtube: 'https://www.youtube.com/watch?v=e2cvE8xIPBc&ab_channel=AlessioLucciola'},
+    {name: 'SmartSupply', description: "DApp built using the Blockchain to fight fake products on the web", img: images.smartsupply, tags: ['Solidity', 'Typescript', 'Hardhat', 'Ethereum', 'Express', 'Docker', 'ReactJS', 'Prisma'], website: '', github: 'https://github.com/AlessioLucciola/blockchain-and-distributed-ledger-project', youtube: 'https://www.youtube.com/watch?v=Jb_NyqDaF1o&ab_channel=AlessioLucciola'},
     {name: 'Airbnb Price Prediction', description: 'Machine Learning model created using PySpark for predicting the price of an Airbnb. A web application was created to test the model.', img: images.airbnb, tags: ['MachineLearning', 'Python', 'Spark', 'ReactJS', 'WebApp', 'MySQL', 'Django', 'Typescript', 'Docker'], website: '', github: 'https://github.com/AlessioLucciola/airbnb-price-predictor', youtube: 'https://www.youtube.com/watch?v=CLMlq0RHy-0&ab_channel=AlessioLucciola'},
     {name: 'Voicefork', description: "A TheFork mobile app clone whose backend is implemented using a microservices structure. The app was developed using React Native, the microservices using both Express and FastAPI. The project has been also deployed on AWS, and the infrastructure is defined using Terraform, and it's load tested using k6", img: images.voicefork, tags: ['MobileApp', 'Typescript', 'Python', 'Docker', 'React Native', 'MySQL', 'PostgreSQL', 'Redis', 'Terraform', 'k6', 'Express', 'Prisma', 'FastAPI', 'Faiss'], website: '', github: 'https://github.com/AlessioLucciola/voicefork', youtube: 'https://www.youtube.com/watch?v=0-LgkOZpavc&ab_channel=AlessioLucciola'},
     {name: 'Voicefork Alexa Skill', description: 'An Alexa Skill that uses the same backend as Voicefork that focuses on restaurant name disambiguation by the voice assistant, focusing on the user context and the restaurant features (cuisine, rating, and location) in order to proceed with the disambiguation.', img: images.voiceforkskill, tags: ['VoiceUserInterface', 'Alexa', 'Typescript'], website: '', github: 'https://github.com/AlessioLucciola/voicefork-alexa-skill', youtube: 'https://www.youtube.com/watch?v=PHmqiMtnwJc&ab_channel=AlessioLucciola'},
@@ -22,7 +24,7 @@ const Projects = () => {
     {name: 'Portfolio', description: 'Personal portfolio built using ReactJS.', img: images.logo, tags: ['Javascript', 'ReactJS', 'SCSS'], website: '', github: 'https://github.com/AlessioLucciola/portfolio-project', youtube: ''},
   ];
 
-  const [visibleProjectNumber, setVisibleProjectNumber] = useState(3);
+  const [visibleProjectNumber, setVisibleProjectNumber] = useState(10);
   const [filteredProjects, setFilteredProjects] = useState(allProjects);
   const [activeFilter, setActiveFilter] = useState(null);
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
