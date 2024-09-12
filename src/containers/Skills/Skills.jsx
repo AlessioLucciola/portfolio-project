@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ReactCountryFlag from "react-country-flag";
 
 import { SectionDivider } from '../../components';
 import { images } from '../../constants';
-import './Skills.scss';
 
 const Skills = () => {
   const allSkills = [
@@ -40,6 +40,13 @@ const Skills = () => {
     { name: "GitHub", tag: "Version Control", imgName: "github" },
   ]
 
+  const languages = [
+    { name: "Italian", iso: "it", level: "C2", certification: "None (Native)" },
+    { name: "English", iso: "gb", level: "B2", certification: "Cambridge English: First (FCE)" },
+    { name: "Spanish", iso: "es", level: "B1", certification: "Diplomas de Español como Lengua Extranjera (DELE)" },
+    { name: "French", iso: "fr", level: "B1", certification: "Diplôme d'Etudes en Langue Française (DELF)" },
+  ]
+
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
   //const [skills, setSkills] = useState(allSkills);
@@ -49,10 +56,10 @@ const Skills = () => {
   const handleSkillsFilter = (item) => {
     if (activeFilter !== item) {
       setActiveFilter(item);
-      setAnimateCard([{y:100, opacity: 0}])
+      setAnimateCard([{opacity: 0}])
 
       setTimeout(() => {
-        setAnimateCard([{y:0, opacity: 1}])
+        setAnimateCard([{opacity: 1}])
 
         if(item === 'All') {
           setFilterSkill(skills);
@@ -70,32 +77,60 @@ const Skills = () => {
   return (
     <>
       <a id='skills' />
-      <div className='app__skills'>
+      <div className='app-container'>
         <h2 className='head-text'>Skills.</h2>
-        <div className='app__skills-filter'>
-          {['All', 'Languages', 'Frontend', 'Backend', 'Software and Libraries', 'Version Control'].map((item, index) => (
-            <div key={index} onClick={() => handleSkillsFilter(item)} className={`app__skills-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}>
-              {item}
+        <div className='flex flex-col gap-2'>
+          <div className='app-section flex flex-col gap-5'>
+            <p className='sub-head-text'>
+              Computer Science
+            </p>
+            <div className='flex flex-wrap justify-center gap-2'>
+              {['All', 'Languages', 'Frontend', 'Backend', 'Software and Libraries', 'Version Control'].map((item, index) => (
+                <div key={index} onClick={() => handleSkillsFilter(item)} className={`py-2 px-5 rounded-xl cursor-pointer text-sm font-medium border-2 border-[--secondary-color] duration-300 hover:bg-[--secondary-color] hover:text-white ${activeFilter === item && 'bg-[--secondary-color] text-white'}`}>
+                  {item}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        <motion.div animate={animateCard} transition={{ duration: 0.5, delayChildren: 0.5 }} className='app__skills-motion'>
-            <div className='app__skills-item-container app__flex'>
-              {filterSkill.map((skill, index) => (
-                <div className='app__skills-item' key={index}>
-                  <div className='app__skills-img app__flex'>
-                    <img src={getImgPath(skill.imgName)} alt={skill.name}/>
-                  </div>
-                  <div className='app__skills-content app__flex'>
-                    <h4 className='bold-text'>
+          
+            <motion.div animate={animateCard} transition={{ duration: 0.3, delayChildren: 0.5 }}>
+                <div className='flex flex-wrap justify-center items-center text-center gap-7'>
+                  {filterSkill.map((skill, index) => (
+                    <div className='flex flex-col justify-center' key={index}>
+                      <img src={getImgPath(skill.imgName)} alt={skill.name} className='p-3 rounded-full w-[5rem] h-[5rem] object-contain bg-[--primary-color]' />
                       {skill.name}
-                    </h4>
+                    </div>
+                  ))}
+                </div>
+            </motion.div>
+          </div>
+
+          <div className='app-section flex flex-col gap-5'>
+            <p className='sub-head-text'>
+              Languages
+            </p>
+            <div className='flex flex-col justify-center text-center gap-3'>
+              {languages.map((language, index) => (
+                <div className='flex flex-col md:flex-row md:justify-left items-center gap-3' key={index}>
+                  <div className='w-[4rem] h-[4rem] p-2 bg-[--primary-color] rounded-full'>
+                    <ReactCountryFlag countryCode={language.iso} svg style={{width: '3em', height: '3em', padding: '5px'}}/>
+                  </div>
+                  <div className='flex flex-col justify-center text-center md:justify-left md:text-left'>
+                    <span className='font-bold'>
+                    {language.name}
+                    </span>
+                    <span>
+                      Certification: {language.certification}
+                    </span>
+                    <span>
+                      Level: {language.level}
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
-        </motion.div>
+          </div>
+
+        </div>
       </div>
       <SectionDivider />
     </>

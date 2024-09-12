@@ -5,7 +5,6 @@ import { SectionDivider } from '../../components';
 import { images } from '../../constants';
 import { BiWorld } from 'react-icons/bi';
 import { AiOutlineGithub, AiFillYoutube, AiFillDelete } from 'react-icons/ai';
-import './Projects.scss';
 
 const Projects = () => {
   const allProjects = [
@@ -60,47 +59,65 @@ const Projects = () => {
   return (
     <>
       <a id='projects' />
-      <div className='app__projects'>
+      <div className='app-container'>
         <h2 className='head-text'>Projects.</h2>
         {activeFilter !== null ? (
-          <div className='app__projects-active-filter-button' onClick={() => handleRemoveProjectFilter()}>
-            <AiFillDelete /> Active filter: {activeFilter}
+          <div className='flex flex-row mb-3 text-center text-md align-center gap-1 cursor-pointer p-2 bg-[--secondary-color] border-2 border-[--secondary-color] text-white duration-300 rounded-xl hover:bg-[--white-color] hover:border-[--red-color] hover:text-[--red-color]' onClick={() => handleRemoveProjectFilter()}>
+            <span className='text-xl'>
+              <AiFillDelete />
+            </span>
+            <span>
+              Active filter:
+            </span>
+            <span>
+              {activeFilter}
+            </span>
           </div>
         ) : (
           ''
         )}
-        <motion.div animate={animateCard} transition={{ duration: 0.5, delayChildren: 0.5 }} className='app__projects-cards app__flex'>
+        <motion.div animate={animateCard} transition={{ duration: 0.5, delayChildren: 0.5 }} className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-center gap-5 mb-5'>
           {filteredProjects.slice(0, visibleProjectNumber).map((item, index) => (
-            <div className='app__projects-card' key={index}>
-              <div className='app__projects-card-row'>
-                <img src={item.img} alt={`${item.name}Logo`}></img>
+            <div className='app-section flex flex-col' key={index}>
+              <div className='flex flex-col justify-center items-center gap-1 w-[90%] mx-auto'>
+                <img src={item.img} alt={`${item.name}-logo`} className='w-20 rounded-xl'></img>
+                <p className='sub-head-text'>{item.name}</p>
               </div>
-              <div className='app__projects-card-row'>
-                  <p className='app__project-card-name'>{item.name}</p>
+              <div className='flex flex-col gap-2 text-center'>
                   {item.description}
-                  <div className='app__projects-card-column'>
+                  <div className='flex flex-wrap gap-1 justify-center'>
                     {item.tags && item.tags.map((tag, index) => (
-                      <div key={`${item.name}_${tag}_${index}`} onClick={() => handleProjectFilter(tag)} className={`app__projects-card-tag ${tag === activeFilter ? 'app__project-card-tag-active-filter' : ''}`}>
+                      <div key={`${item.name}_${tag}_${index}`} onClick={() => handleProjectFilter(tag)} className={`${tag === activeFilter ? 'p-1 bg-[--white-color] text-[--secondary-color] border-2 border-[--secondary-color] rounded-xl' : 'app-button'}`}>
                           <a href={`#projects`}>#{tag}</a>
                       </div>
                     ))}
                   </div>
-                  <div className='app__projects-card-column'>
-                    <span>
+                  <div className='flex flex-row text-3xl gap-2 mx-auto'>
+                    <span className='duration-300 hover:text-[--secondary-color]'>
                       {item.website !== '' && (<a href={item.website} target="_blank" rel="noreferrer"><BiWorld /></a>)}
+                    </span>
+                    <span className='duration-300 hover:text-[--secondary-color]'>
                       {item.github !== '' && (<a href={item.github} target="_blank" rel="noreferrer"><AiOutlineGithub /></a>)}
+                    </span>
+                    <span className='duration-300 hover:text-[--secondary-color]'>
                       {item.youtube !== '' && (<a href={item.youtube} target="_blank" rel="noreferrer"><AiFillYoutube /></a>)}
                     </span>
                   </div>
               </div>
             </div>
           ))}
-          {visibleProjectNumber < filteredProjects.length ? (
-            <button onClick={() => setVisibleProjectNumber(visibleProjectNumber+3)}>Load More</button>
-          ) : (
-            <a href='https://github.com/AlessioLucciola' target='_blank' rel='noreferrer'><button>View More On GitHub</button></a>
-          ) }
         </motion.div>
+        {visibleProjectNumber < filteredProjects.length ? (
+            <button className='app-button w-full h-[3rem]' onClick={() => setVisibleProjectNumber(visibleProjectNumber+3)}>
+              Load More
+            </button>
+          ) : (
+            <button className='app-button w-full h-[3rem]'>
+              <a href='https://github.com/AlessioLucciola' target='_blank' rel='noreferrer'>
+                View More On GitHub
+              </a>
+            </button>
+        ) }
       </div>
       <SectionDivider />
     </>

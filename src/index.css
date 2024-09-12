@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --font-base: "DM Sans", sans-serif;
@@ -18,4 +21,111 @@
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+}
+
+.app-container {
+  width: 80%;
+  max-width: 100rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.app-section {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--white-color);
+}
+
+.app-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head-text {
+  font-size: 2.75rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--black-color);
+  text-transform: capitalize;
+  margin: 1rem 0;
+
+  span {
+      color: var(--secondary-color);
+  }
+
+  @media screen and (max-width: 450px) {
+      font-size: 2rem;
+  }
+}
+
+.sub-head-text {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--black-color);
+}
+
+.app-button {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+  border: 2px solid var(--secondary-color);
+  transition: all 0.3s ease;
+  padding: 3px 2px;
+  border-radius: 10px;
+}
+
+.app-button:hover {
+  background-color: var(--white-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+.app-form-field {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--lightGray-color);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-family: var(--font-base);
+  transition: all 0.3s ease;
+}
+
+.app-form-field:focus{
+  border: 2px solid var(--secondary-color);
+}
+
+.app-button:focus-within {
+  border: 2px solid var(--secondary-color);
+  outline: none;
+}
+
+.app-form-field:hover {
+  border: 2px solid var(--secondary-color);
+  outline: none;
+}
+
+.p-text {
+  font-size: 0.8rem;
+  text-align: left;
+  color: var(--gray-color);
+  line-height: 1.5;
+}
+
+.highlight-text {
+  font-weight: 800;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.highlight-text-title {
+  font-size: 2rem;
+  text-align: center;
+  color: black;
 }

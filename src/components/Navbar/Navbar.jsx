@@ -53,7 +53,10 @@ const Navbar = () => {
           </li>
         ))}
         <a className='app__flex p-text' key='cv_download' id='cv_download' href='https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf' download>
-          <button><HiDownload />Download CV</button>
+          <button className='flex flex-row items-center'>
+            <HiDownload />
+            Download CV
+          </button>
         </a>
       </ul>
 
