@@ -20,7 +20,7 @@ const Footer = () => {
     if (formValues['name'] === '' || formValues['surname'] === '' || formValues['email'] === '' || !formValues['email'].match(emailRegex) || formValues['message'] === '')
       console.log("Form Debug: Something's wrong. Please, check the data.")
     else {
-      emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
+      emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
       .then((result) => {
         setLoading(false);
         setPopup({'trigger': true, 'title': 'Email Sent Successfully', 'description': 'You will receive an answer as soon as possible.'});
