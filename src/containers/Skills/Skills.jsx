@@ -81,7 +81,7 @@ const Skills = () => {
         <h2 className='head-text'>Skills.</h2>
         <div className='flex flex-col gap-2'>
           <div className='app-section flex flex-col gap-5'>
-            <p className='sub-head-text'>
+            <p className='font-bold text-2xl text-center'>
               Computer Science
             </p>
             <div className='flex flex-wrap justify-center gap-2'>
@@ -105,7 +105,7 @@ const Skills = () => {
           </div>
 
           <div className='app-section flex flex-col gap-5'>
-            <p className='sub-head-text'>
+            <p className='font-bold text-2xl text-center'>
               Languages
             </p>
             <div className='flex flex-col justify-center text-center gap-3'>
