@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { HiMenuAlt4, HiX, HiDownload } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import { useTranslation } from "react-i18next";
-import i18next from 'i18next';
+//import i18next from 'i18next';
 import cookies from 'js-cookie';
 
 import { images } from '../../constants';
-import './Navbar.scss';
 
 const Navbar = () => {
   const languages = [
@@ -39,58 +38,75 @@ const Navbar = () => {
     setToggle((prevState) => !prevState);
   }
 
-  const sections = [t('sections.about.name'), t('sections.projects.name'), t('sections.skills.name'), t('sections.contact.name')]
+  const sections = [
+    t('sections.about.name'),
+    t('sections.projects.name'),
+    t('sections.skills.name'),
+    t('sections.contact.name')
+  ]
 
   return (
-    <nav className='app__navbar'>
-      <div className='app__navbar-logo'>
-        <img src={images.logo} alt="logo" />
+    <nav className="w-full flex justify-between items-center py-4 px-8 fixed z-20 bg-transparent backdrop-blur-md">
+      <div className="flex justify-start items-center">
+        <img src={images.logo} alt="logo" className="w-14 h-14 md:w-20 md:h-20" />
       </div>
-      <ul className='app__navbar-links'>
+
+      <ul className="flex-1 flex justify-end items-center space-x-8 hidden md:flex">
         {['about', 'projects', 'skills', 'contact'].map((section) => (
-          <li className='app__flex p-text' key={`link-${section}`}>
+          <li className="cursor-pointer uppercase font-medium text-gray-600 duration-100 hover:text-[--secondary-color] hover:border-b-2 hover:border-[--secondary-color]" key={`link-${section}`}>
             <a href={`#${section}`}>{section}</a>
           </li>
         ))}
-        <a className='app__flex p-text' key='cv_download' id='cv_download' href='https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf' download>
-          <button className='flex flex-row items-center'>
-            <HiDownload />
-            Download CV
-          </button>
+        <a
+          className="p-2 bg-[--secondary-color] text-white rounded-lg border-2 border-[--secondary-color] hover:bg-white hover:text-[--secondary-color] flex items-center space-x-2"
+          key="cv_download"
+          id="cv_download"
+          href="https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf"
+          download
+        >
+          <HiDownload />
+          <span>Download CV</span>
         </a>
       </ul>
 
-      <div className='app__navbar-menu'>
-        <HiMenuAlt4 onClick={(e) => handleMenuOnClick(e)}/>
-        
-        <motion.div initial={{ width: -20 }} animate={toggle ? { width: 300 } : { width: 0 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
-            <motion.span initial={{ width: 0 }} animate={toggle ? { width: 70 } : { width: 0 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
-              {/*{currentLanguageCode == 'en' ? (
-                <a href='' onClick={() => {i18next.changeLanguage('it')}}>
-                  <img src={images.italianflag} alt={'it-flag'} />
-                </a>
-              ) : (
-                <a href='' onClick={() => {i18next.changeLanguage('en')}}>
-                  <img src={images.usaflag} alt={'en-flag'} />
-                </a>
-              )}*/}
-              <HiX onClick={(e) => handleMenuOnClick(e)} />
-              </motion.span>
-            
-            <motion.ul className='app__navbar-links'>
-              {sections.map((section) => (
-                <li key={section}>
-                  <a href={`#${section}`} onClick={() => setToggle(false)}>{section}</a>
-                </li>
-              ))}
-              <a className='app__flex p-text' key='cv_download' id='cv_download' href='https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf'>
-                <button><HiDownload />Download CV</button>
-              </a>
-            </motion.ul>
+      <div className="relative md:hidden">
+        <HiMenuAlt4 className="w-8 h-8 text-white bg-[--secondary-color] p-2 rounded-full" onClick={handleMenuOnClick} />
+        <motion.div
+          initial={{ width: 0 }}
+          animate={toggle ? { width: '100%' } : { width: 0 }}
+          exit={{ width: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className={`fixed top-0 right-0 bottom-0 bg-white h-[100vh] shadow-lg p-6 z-50 ${!toggle && 'hidden'}`}
+        >
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={toggle ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="absolute top-4 right-4"
+          >
+            <HiX className="w-8 h-8 text-secondary" onClick={handleMenuOnClick} />
+          </motion.span>
+
+          <motion.ul className="flex flex-col items-center space-y-4 mt-10">
+            {sections.map((section) => (
+              <li key={section} className="text-lg font-medium">
+                <a href={`#${section}`} onClick={() => setToggle(false)}>{section}.</a>
+              </li>
+            ))}
+            <a
+              className="p-2 bg-[--secondary-color] text-white rounded-lg flex items-center space-x-2"
+              key="cv_download"
+              id="cv_download"
+              href="https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf"
+            >
+              <HiDownload />
+              <span>Download CV</span>
+            </a>
+          </motion.ul>
         </motion.div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Navbar

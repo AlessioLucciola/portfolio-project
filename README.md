@@ -10,4 +10,4 @@ The website uses the following technologies:
 </ul>
 
 ## Visit the Website
-The website is available at [alessioluc.netlify.app](https://alessioluc.netlify.app/).
+The website is available at [alessiolucciola.netlify.app](https://alessiolucciola.netlify.app/).
