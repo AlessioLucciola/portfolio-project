@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from "react-i18next";
 //import i18next from 'i18next';
 import cookies from 'js-cookie';
+import ReactCountryFlag from 'react-country-flag';
 
 import { images } from '../../constants';
 
@@ -32,10 +33,15 @@ const Navbar = () => {
   }, [currentLanguage, t])
 
   const [toggle, setToggle] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleMenuOnClick = (e) => {
     e.stopPropagation();
     setToggle((prevState) => !prevState);
+  }
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
   }
 
   const sections = [
@@ -43,6 +49,23 @@ const Navbar = () => {
     t('sections.projects.name'),
     t('sections.skills.name'),
     t('sections.contact.name')
+  ]
+
+  const CVButtons = [
+    {
+      key: 'cv_download_en',
+      id: 'cv_download_en',
+      string: 'Download CV',
+      iso: 'gb',
+      href: 'https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf',
+    }, 
+    {
+      key: 'cv_download_it',
+      id: 'cv_download_it',
+      string: 'Scarica CV',
+      iso: 'it',
+      href: 'https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf',
+    }
   ]
 
   return (
@@ -57,16 +80,31 @@ const Navbar = () => {
             <a href={`#${section}`}>{section}</a>
           </li>
         ))}
-        <a
-          className="p-2 bg-[--secondary-color] text-white rounded-lg border-2 border-[--secondary-color] hover:bg-white hover:text-[--secondary-color] flex items-center space-x-2"
-          key="cv_download"
-          id="cv_download"
-          href="https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf"
-          download
-        >
-          <HiDownload />
-          <span>Download CV</span>
-        </a>
+        <div className="relative">
+          <button
+            className="p-2 bg-[--secondary-color] text-white rounded-lg border-2 border-[--secondary-color] hover:bg-white hover:text-[--secondary-color] flex items-center space-x-2"
+            onClick={handleDropdownToggle}
+          >
+            <HiDownload />
+            <span>Download CV</span>
+          </button>
+
+          {dropdownOpen && (
+            <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+              {CVButtons.map((button) => (
+                <a
+                  className="flex items-center p-2 text-gray-800 hover:bg-gray-100 space-x-2 duration-200"
+                  key={button.key}
+                  href={button.href}
+                  download
+                >
+                  <ReactCountryFlag countryCode={button.iso} svg alt={`${button.iso}-flag`} />
+                  <span>{button.string}</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
       </ul>
 
       <div className="relative md:hidden">
@@ -87,21 +125,28 @@ const Navbar = () => {
             <HiX className="w-8 h-8 text-secondary" onClick={handleMenuOnClick} />
           </motion.span>
 
-          <motion.ul className="flex flex-col items-center space-y-4 mt-10">
-            {sections.map((section) => (
-              <li key={section} className="text-lg font-medium">
-                <a href={`#${section}`} onClick={() => setToggle(false)}>{section}.</a>
-              </li>
-            ))}
-            <a
-              className="p-2 bg-[--secondary-color] text-white rounded-lg flex items-center space-x-2"
-              key="cv_download"
-              id="cv_download"
-              href="https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf"
-            >
-              <HiDownload />
-              <span>Download CV</span>
-            </a>
+          <motion.ul className="flex flex-col justify-between items-center h-full pt-[2rem] pb-[1rem] gap-5">
+            <div className='flex flex-col gap-10 my-auto'>
+              {sections.map((section) => (
+                <li key={section} className="text-lg font-medium">
+                  <a href={`#${section}`} onClick={() => setToggle(false)}>{section}.</a>
+                </li>
+              ))}
+            </div>
+            <div className='flex flex-row gap-3'>
+              {CVButtons.map((button) => (
+                <a
+                  className="p-2 text-center bg-[--secondary-color] border-2 border-[--secondary-color] duration-200 hover:bg-white hover:text-[--secondary-color] text-white rounded-lg flex items-center space-x-2"
+                  key={button.key}
+                  id={button.id}
+                  href={button.href}
+                >
+                  <ReactCountryFlag countryCode={button.iso} svg alt={`${button.iso}-flag`} />
+                  <HiDownload />
+                  <span>{button.string}</span>
+                </a>
+              ))}
+            </div>
           </motion.ul>
         </motion.div>
       </div>

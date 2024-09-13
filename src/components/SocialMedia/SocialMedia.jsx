@@ -17,7 +17,7 @@ const SocialMedia = () => {
   ]
 
   return (
-    <div className='fixed bottom-2 left-2 cursor-pointer p-4 z-30'>
+    <div className='fixed bottom-2 left-2 cursor-pointer p-4 z-3'>
       <div className='flex flex-col gap-2'>
         {SocialMedia.map((social, index) => (
           <a key={index} href={social.url} target='_blank' rel='noreferrer' className='text-3xl md:text-4xl duration-300 hover:text-[--secondary-color]'> 
