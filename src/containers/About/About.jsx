@@ -35,15 +35,7 @@ const About = () => {
   return (
     <>
       <a id='about' />
-      <div className='app-container pt-[8rem]'>
-        <div className='flex flex-row text-center items-center bg-white text-[--red-color] rounded-md border-2 border-[--red-color]'>
-          <span>
-            <FaGear className='text-2xl'/>
-          </span>
-          <span>
-            The website is currently undergoing maintenance to improve user experience and implement essential updates. Please check back later.
-          </span>
-        </div>
+      <div className='app-container pt-[5rem]'>
         <h2 className='head-text'>About Me.</h2>
         <div className='app-section flex flex-col gap-3'>
           <div className='flex justify-center lg:justify-left'>

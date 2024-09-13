@@ -34,6 +34,7 @@ const Navbar = () => {
 
   const [toggle, setToggle] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   const handleMenuOnClick = (e) => {
     e.stopPropagation();
@@ -43,6 +44,10 @@ const Navbar = () => {
   const handleDropdownToggle = () => {
     setDropdownOpen(!dropdownOpen);
   }
+
+  const handleMobileDropdownToggle = () => {
+    setMobileDropdownOpen(!mobileDropdownOpen);
+  };
 
   const sections = [
     t('sections.about.name'),
@@ -123,39 +128,49 @@ const Navbar = () => {
           initial={{ width: 0 }}
           animate={toggle ? { width: '100%' } : { width: 0 }}
           exit={{ width: 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
           className={`fixed top-0 right-0 bottom-0 bg-white h-[100vh] shadow-lg p-6 z-50 ${!toggle && 'hidden'}`}
         >
           <motion.span
             initial={{ opacity: 0 }}
             animate={toggle ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="absolute top-4 right-4"
           >
             <HiX className="w-8 h-8 text-secondary" onClick={handleMenuOnClick} />
           </motion.span>
 
-          <motion.ul className="flex flex-col justify-between items-center h-full mt-[2rem] mb-[1rem] gap-5">
-            <div className='flex flex-col gap-10 my-auto'>
-              {sections.map((section) => (
-                <li key={section} className="text-lg font-medium">
-                  <a href={`#${section}`} onClick={() => setToggle(false)}>{section}.</a>
-                </li>
-              ))}
-            </div>
-            <div className='flex flex-row gap-3'>
-              {CVButtons.map((button) => (
-                <a
-                  className="p-2 text-center bg-[--secondary-color] border-2 border-[--secondary-color] duration-200 hover:bg-white hover:text-[--secondary-color] text-white rounded-lg flex items-center space-x-2"
-                  key={button.key}
-                  id={button.id}
-                  href={button.href}
-                >
-                  <ReactCountryFlag countryCode={button.iso} svg alt={`${button.iso}-flag`} />
-                  <HiDownload />
-                  <span>{button.string}</span>
-                </a>
-              ))}
+          <motion.ul className="flex flex-col justify-center items-center h-full gap-5">
+            {sections.map((section) => (
+              <li key={section} className="text-lg font-medium">
+                <a href={`#${section}`} onClick={() => setToggle(false)}>{section}.</a>
+              </li>
+            ))}
+            
+            <div className="relative">
+              <button
+                className="p-2 text-center bg-[--secondary-color] border-2 border-[--secondary-color] duration-200 hover:bg-white hover:text-[--secondary-color] text-white rounded-lg flex items-center space-x-2"
+                onClick={handleMobileDropdownToggle}
+              >
+                <HiDownload />
+                <span>Download CV</span>
+              </button>
+
+              {mobileDropdownOpen && (
+                <div className="absolute top-[100%] mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                  {CVButtons.map((button) => (
+                    <a
+                      className="flex items-center p-2 text-gray-800 hover:bg-gray-100 space-x-2 duration-200"
+                      key={button.key}
+                      href={button.href}
+                      download
+                    >
+                      <ReactCountryFlag countryCode={button.iso} svg alt={`${button.iso}-flag`} />
+                      <span>{button.string}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.ul>
         </motion.div>
