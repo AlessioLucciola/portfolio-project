@@ -135,7 +135,7 @@ const Navbar = () => {
             <HiX className="w-8 h-8 text-secondary" onClick={handleMenuOnClick} />
           </motion.span>
 
-          <motion.ul className="flex flex-col justify-between items-center h-full pt-[2rem] pb-[1rem] gap-5">
+          <motion.ul className="flex flex-col justify-between items-center h-full mt-[2rem] mb-[1rem] gap-5">
             <div className='flex flex-col gap-10 my-auto'>
               {sections.map((section) => (
                 <li key={section} className="text-lg font-medium">
