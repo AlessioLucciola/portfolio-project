@@ -72,14 +72,14 @@ const Navbar = () => {
       id: 'cv_download_en',
       string: 'Download CV',
       iso: 'gb',
-      href: 'https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf',
+      href: 'https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio-English.pdf',
     }, 
     {
       key: 'cv_download_it',
       id: 'cv_download_it',
       string: 'Scarica CV',
       iso: 'it',
-      href: 'https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio.pdf',
+      href: 'https://github.com/AlessioLucciola/portfolio-project/raw/master/src/assets/documents/CV_Alessio-Italiano.pdf',
     }
   ]
 
