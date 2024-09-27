@@ -44,7 +44,7 @@ const Skills = () => {
 
   const languages = [
     { name: "Italian", iso: "it", level: "C2", certification: "None (Native)" },
-    { name: "English", iso: "gb", level: "B2", certification: "Cambridge English: First (FCE)" },
+    { name: "English", iso: "gb", level: "B2", certification: "Cambridge English - First (FCE)" },
     { name: "Spanish", iso: "es", level: "B1", certification: "Diplomas de Español como Lengua Extranjera (DELE)" },
     { name: "French", iso: "fr", level: "B1", certification: "Diplôme d'Etudes en Langue Française (DELF)" },
   ]
