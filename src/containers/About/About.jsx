@@ -28,7 +28,6 @@ const About = () => {
     { name: 'Geek', icon: <FaGlasses /> },
     { name: 'Vegetarian', icon: <PiPlantBold /> },
     { name: 'Solo-Traveler', icon: <FaPlane /> },
-    { name: 'Backpacker', icon: <MdBackpack /> },
     { name: 'Language Enthusiast', icon: <FaLanguage /> }
   ]
 

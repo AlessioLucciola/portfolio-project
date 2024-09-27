@@ -47,6 +47,9 @@ import solidity from '../assets/solidity.png';
 import pytorch from '../assets/pytorch.png';
 import smartsupply from '../assets/smartsupply.png';
 import tailwind from '../assets/tailwind.png';
+import sentimentanalysis from '../assets/sentimentanalysis.png';
+import eegpersonalityestimation from '../assets/eegpersonalityestimation.png';
+import explorerstale from '../assets/explorerstale.png';
 
 export default {
     logo,
@@ -97,5 +100,8 @@ export default {
     solidity,
     pytorch,
     smartsupply,
-    tailwind
+    tailwind,
+    sentimentanalysis,
+    eegpersonalityestimation,
+    explorerstale
 };
