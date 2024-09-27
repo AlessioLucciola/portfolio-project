@@ -7,11 +7,11 @@ import { images } from '../../constants';
 
 const Skills = () => {
   const allSkills = [
-    { name: "Java", tag: "Languages", imgName: "java" },
-    { name: "Golang", tag: "Languages", imgName: "golang" },
     { name: "Python", tag: "Languages", imgName: "python" },
     { name: "Javascript", tag: "Languages", imgName: "javascript" },
     { name: "Typescript", tag: "Languages", imgName: "typescript" },
+    { name: "Java", tag: "Languages", imgName: "java" },
+    { name: "Golang", tag: "Languages", imgName: "golang" },
     { name: "Solidity", tag: "Languages", imgName: "solidity" },
     { name: "HTML5", tag: "Frontend", imgName: "html" },
     { name: "CSS", tag: "Frontend", imgName: "css" },
@@ -19,21 +19,23 @@ const Skills = () => {
     { name: "Tailwind", tag: "Frontend", imgName: "tailwind" },
     { name: "ReactJS", tag: "Frontend", imgName: "reactjs" },
     { name: "ReactNative", tag: "Frontend", imgName: "reactnative" },
+    { name: "NextJS", tag: "Frontend", imgName: "nextjs" },
     { name: "Django", tag: "Backend", imgName: "django" },
     { name: "ExpressJS", tag: "Backend", imgName: "express" },
-    { name: "PHP", tag: "Languages", imgName: "php" },
     { name: "Hardhat", tag: "Backend", imgName: "hardhat" },
     { name: "PostgreSQL", tag: "Backend", imgName: "postgresql" },
     { name: "MySQL", tag: "Backend", imgName: "mysql" },
+    { name: "GraphQL", tag: "Backend", imgName: "graphql" },
+    { name: "Strapi", tag: "Backend", imgName: "strapi" },
     { name: "Bootstrap", tag: "Frontend", imgName: "bootstrap" },
     { name: "Docker", tag: "Software and Libraries", imgName: "docker" },
     { name: "AWS", tag: "Software and Libraries", imgName: "aws" },
     { name: "Postman", tag: "Software and Libraries", imgName: "postman" },
     { name: "K6", tag: "Software and Libraries", imgName: "k6" },
     { name: "Terraform", tag: "Software and Libraries", imgName: "terraform" },
-    { name: "Pytorch", tag: "Software and Libraries", imgName: "pytorch" },
-    { name: "Spark", tag: "Software and Libraries", imgName: "spark" },
-    { name: "ScikitLearn", tag: "Software and Libraries", imgName: "scikitlearn" },
+    { name: "PyTorch", tag: "AI", imgName: "pytorch" },
+    { name: "PySpark", tag: "AI", imgName: "spark" },
+    { name: "ScikitLearn", tag: "AI", imgName: "scikitlearn" },
     { name: "Photoshop", tag: "Software and Libraries", imgName: "photoshop" },
     { name: "MarvelApp", tag: "Software and Libraries", imgName: "marvel" },
     { name: "GitLab", tag: "Version Control", imgName: "gitlab" },
@@ -85,7 +87,7 @@ const Skills = () => {
               Computer Science
             </p>
             <div className='flex flex-wrap justify-center gap-2'>
-              {['All', 'Languages', 'Frontend', 'Backend', 'Software and Libraries', 'Version Control'].map((item, index) => (
+              {['All', 'Languages', 'Frontend', 'Backend', 'AI', 'Software and Libraries', 'Version Control'].map((item, index) => (
                 <div key={index} onClick={() => handleSkillsFilter(item)} className={`py-2 px-5 rounded-xl cursor-pointer text-sm font-medium border-2 border-[--secondary-color] duration-300 hover:bg-[--secondary-color] hover:text-white ${activeFilter === item && 'bg-[--secondary-color] text-white'}`}>
                   {item}
                 </div>

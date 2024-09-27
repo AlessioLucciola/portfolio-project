@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-import { Popup } from '../../components';
+import { Popup, SectionDivider } from '../../components';
 
 const Footer = () => {
   const [formValues, setFormValues] = useState({ name: '', surname: '', email: '', message: '' });
@@ -56,6 +56,20 @@ const Footer = () => {
                 {loading ? 'Sending' : 'Send Message'}
               </button>
           </form>
+        </div>
+
+        <div className='app-section mt-2'>
+          <p className='text-center'>
+            Or you can send me a message on <a href='https://t.me/alessiolucciola' target='_blank' rel='noreferrer' className='text-[--secondary-color]'>Telegram</a>
+          </p>
+        </div>
+
+        <SectionDivider />
+
+        <div className='app-section mt-[1rem]'>
+          <p className='text-center'>
+            Made with ❤️ (and a pinch of Javascript) by Alessio Lucciola
+          </p>
         </div>
       </div>
       <Popup trigger={popup['trigger']} title={popup['title']} description={popup['description']} onClick={() => setPopup({...popup, 'trigger': false})} />

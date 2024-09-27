@@ -50,6 +50,9 @@ import tailwind from '../assets/tailwind.png';
 import sentimentanalysis from '../assets/sentimentanalysis.png';
 import eegpersonalityestimation from '../assets/eegpersonalityestimation.png';
 import explorerstale from '../assets/explorerstale.png';
+import nextjs from '../assets/nextjs.png';
+import strapi from '../assets/strapi.png';
+import graphql from '../assets/graphql.png';
 
 export default {
     logo,
@@ -103,5 +106,8 @@ export default {
     tailwind,
     sentimentanalysis,
     eegpersonalityestimation,
-    explorerstale
+    explorerstale,
+    nextjs,
+    strapi,
+    graphql
 };
