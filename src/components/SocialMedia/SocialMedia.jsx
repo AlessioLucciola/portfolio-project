@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsInstagram } from 'react-icons/bs';
 
 const SocialMedia = () => {
   const SocialMedia = [
@@ -14,6 +14,11 @@ const SocialMedia = () => {
       url: 'https://www.linkedin.com/in/alessio-lucciola/',
       icon: <BsLinkedin />,
     },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/alessiolucciola/',
+      icon: <BsInstagram />,
+    }
   ]
 
   return (
