@@ -5,9 +5,11 @@ import { SectionDivider } from '../../components';
 import { images } from '../../constants';
 import { BiWorld } from 'react-icons/bi';
 import { AiOutlineGithub, AiFillYoutube, AiFillDelete } from 'react-icons/ai';
+import { CgDanger } from 'react-icons/cg';
 
 const Projects = () => {
   const allProjects = [
+    {name: 'Steam Recommender System', description: 'A recommender system using deep learning methods.', img: images.steamrecommender, tags: ['Python', 'DeepLearning', 'MachineLearning', 'Pytorch', 'RecommenderSystem'], website: '', github: '', youtube: '', ongoing: true},
     {name: 'TA-EPE: A Transfomer-based Approach to EEG Personality Estimation', description: 'This project explores using Transformer architectures for personality estimation from EEG data, demonstrating the effectiveness of deep learning in tackling the complexities of brain signals and improving prediction accuracy.', img: images.eegpersonalityestimation, tags: ['Python', 'DeepLearning', 'MachineLearning', 'Pytorch', 'Transformers', 'EEG', 'PersonalityEstimation'], website: '', github: 'https://github.com/AlessioLucciola/eeg-personality-estimation', youtube: ''},
     {name: 'Explorer\'s Tale', description: 'A custom-built multilingual travel blog designed to provide valuable tips and insights to help fellow travelers plan and enjoy their trips. Note: Private GitHub repository.', img: images.explorerstale, tags: ['Typescript', 'NextJS', 'Tailwind', 'NodeJS', 'Strapi', 'PostgreSQL', 'GraphQL', 'Docker'], website: 'https://www.explorerstale.com/', github: 'https://github.com/AlessioLucciola/travel-blog-project', youtube: ''},
     {name: 'Multimodal Advertisement Sentiment Analysis', description: "This project focuses on creating a multimodal emotion recognition system that analyzes user reactions to video ads by processing facial expressions, voice tone, and PPG signals. The goal is to optimize ad timing and personalize ads based on emotional feedback.", img: images.sentimentanalysis, tags: ['Python', 'DeepLearning', 'MachineLearning', 'Pytorch', 'CNN', 'LSTM', 'Transformers', 'VisionTransformers', 'PPG', 'Multimodality', 'EmotionRecognition', 'AudioProcessing'], website: '', github: 'https://github.com/AlessioLucciola/multimodal-advertisement-sentiment-analysis', youtube: 'https://www.youtube.com/watch?v=_nnKPOXIYY4&ab_channel=AlessioLucciola'},
@@ -106,6 +108,14 @@ const Projects = () => {
                       {item.youtube !== '' && (<a href={item.youtube} target="_blank" rel="noreferrer"><AiFillYoutube /></a>)}
                     </span>
                   </div>
+                  {
+                    item.ongoing && (
+                      <div className='flex flex-row justify-center items-center content-center text-[--red-color] italic'>
+                        <CgDanger />
+                        Ongoing Project
+                      </div>
+                    )
+                  }
               </div>
             </div>
           ))}

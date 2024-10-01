@@ -53,6 +53,7 @@ import explorerstale from '../assets/explorerstale.png';
 import nextjs from '../assets/nextjs.png';
 import strapi from '../assets/strapi.png';
 import graphql from '../assets/graphql.png';
+import steamrecommender from '../assets/steamrecommender.png';
 
 export default {
     logo,
@@ -109,5 +110,6 @@ export default {
     explorerstale,
     nextjs,
     strapi,
-    graphql
+    graphql,
+    steamrecommender
 };
