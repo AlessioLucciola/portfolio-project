@@ -54,6 +54,8 @@ import nextjs from '../assets/nextjs.png';
 import strapi from '../assets/strapi.png';
 import graphql from '../assets/graphql.png';
 import steamrecommender from '../assets/steamrecommender.png';
+import reachabilitygame from '../assets/reachabilitygame.png';
+import fastapi from '../assets/fastapi.png';
 
 export default {
     logo,
@@ -111,5 +113,7 @@ export default {
     nextjs,
     strapi,
     graphql,
-    steamrecommender
+    steamrecommender,
+    reachabilitygame,
+    fastapi
 };

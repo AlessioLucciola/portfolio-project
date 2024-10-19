@@ -948,10 +948,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[--red-color\]{
-  background-color: var(--red-color);
-}
-
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
@@ -1085,6 +1081,10 @@ video {
   font-style: italic;
 }
 
+.text-\[--red-color\]{
+  color: var(--red-color);
+}
+
 .text-\[--secondary-color\]{
   color: var(--secondary-color);
 }
@@ -1102,10 +1102,6 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[--red-color\]{
-  color: var(--red-color);
 }
 
 .shadow-lg{
@@ -1357,9 +1353,27 @@ video {
   }
 }
 
+@media (min-width: 1024px){
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 1280px){
   .xl\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xl\:flex-row{
+    flex-direction: row;
+  }
+
+  .xl\:text-left{
+    text-align: left;
   }
 }
 

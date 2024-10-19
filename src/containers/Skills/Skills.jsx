@@ -20,7 +20,9 @@ const Skills = () => {
     { name: "ReactJS", tag: "Frontend", imgName: "reactjs" },
     { name: "ReactNative", tag: "Frontend", imgName: "reactnative" },
     { name: "NextJS", tag: "Frontend", imgName: "nextjs" },
+    { name: "NodeJS", tag: "Backend", imgName: "nodejs" },
     { name: "Django", tag: "Backend", imgName: "django" },
+    { name: "FastApi", tag: "Backend", imgName: "fastapi" },
     { name: "ExpressJS", tag: "Backend", imgName: "express" },
     { name: "Hardhat", tag: "Backend", imgName: "hardhat" },
     { name: "PostgreSQL", tag: "Backend", imgName: "postgresql" },
@@ -110,13 +112,13 @@ const Skills = () => {
             <p className='font-bold text-2xl text-center'>
               Languages
             </p>
-            <div className='flex flex-col justify-center text-center gap-3'>
+            <div className='grid grid-cols-1 xl:grid-cols-2 align-center text-center gap-3'>
               {languages.map((language, index) => (
-                <div className='flex flex-col md:flex-row md:justify-left items-center gap-3' key={index}>
+                <div className='flex flex-col xl:flex-row xl:justify-left items-center gap-3' key={index}>
                   <div className='w-[4rem] h-[4rem] p-2 bg-[--primary-color] rounded-full'>
                     <ReactCountryFlag countryCode={language.iso} svg style={{width: '3em', height: '3em', padding: '5px'}}/>
                   </div>
-                  <div className='flex flex-col justify-center text-center md:justify-left md:text-left'>
+                  <div className='flex flex-col justify-center text-center xl:justify-left xl:text-left'>
                     <span className='font-bold'>
                     {language.name}
                     </span>
